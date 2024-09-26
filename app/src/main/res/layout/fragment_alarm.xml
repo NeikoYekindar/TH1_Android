@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AlarmFragment">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_alignParentTop="true"
+          android:background="#8AC4F4"
+
+          >
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Chuông báo"
+              android:textColor="#33357B"
+              android:textSize="45sp"
+              android:textStyle="bold"
+              android:layout_centerHorizontal="true"
+              android:layout_marginTop="130dp"
+
+              />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerHorizontal="true"
+              android:layout_marginTop="200dp"
+              android:text="dd/MM/yyyy HH:mm"
+             android:textSize="25sp"
+              android:textColor="#33357B"
+              android:id="@+id/ngaythangnam"
+              />
+          <ImageView
+              android:layout_width="40dp"
+              android:layout_height="40dp"
+              android:src="@drawable/add"
+              android:layout_alignParentEnd="true"
+              android:layout_marginTop="240dp"
+              android:layout_marginBottom="80dp"
+              android:layout_marginEnd="55dp"
+              android:id="@+id/addAlarm"
+              />
+          <ImageView
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:src="@drawable/more"
+              android:layout_alignParentEnd="true"
+             android:layout_marginTop="245dp"
+
+              android:layout_marginEnd="20dp"
+              />
+
+
+
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/ngaythangnam"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginBottom="67dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/recyclerView"
+                    android:scrollbars="vertical"
+                    />
+
+
+
+
+
+
+
+
+
+
+
+
+      </RelativeLayout>
+
+
+  </RelativeLayout>
+</FrameLayout>

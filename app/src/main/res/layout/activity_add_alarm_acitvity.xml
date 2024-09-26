@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAlarmAcitvity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/xanh4"
+
+    >
+<androidx.cardview.widget.CardView
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    app:cardCornerRadius="80dp"
+    android:elevation="4dp"
+    android:layout_marginStart="105dp"
+    android:layout_marginTop="100dp"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/arrow_up"
+        android:id="@+id/arrow_up_hour"
+        />
+</androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="80dp"
+        android:elevation="4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="105dp"
+        android:layout_marginTop="100dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/arrow_up"
+            android:id="@+id/arrow_up_minute"
+            />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="80dp"
+        android:elevation="4dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="290dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/arrow_down"
+            android:id="@+id/arrow_down_hour"
+            />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="80dp"
+        android:elevation="4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="105dp"
+        android:layout_marginTop="290dp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/arrow_down"
+            android:id="@+id/arrow_down_minute"
+            />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="4dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <EditText
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="55sp"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:background="@color/white"
+                android:inputType="number"
+                android:maxLength="2"
+                android:digits="0123456789"
+                android:id="@+id/alarm_hour"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="55sp"
+                android:textStyle="bold"
+
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+            <EditText
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="55sp"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="50dp"
+                android:background="@color/white"
+                android:inputType="number"
+                android:maxLength="2"
+                android:digits="0123456789"
+                android:id="@+id/alarm_minute"
+
+                />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="30dp"
+        android:layout_marginBottom="-20dp"
+        >
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <EditText
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:hint="Tên chuông báo"
+                android:textSize="20sp"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:orientation="vertical"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Âm thanh chuông báo"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="28dp"
+                        />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumb="@drawable/thumb"
+                        app:track="@drawable/track"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="30dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="400dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#E6E6E8"
+                        android:layout_centerHorizontal="true"
+                        >
+
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rung"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="28dp"
+                        />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumb="@drawable/thumb"
+                        app:track="@drawable/track"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="30dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="400dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#E6E6E8"
+                        android:layout_centerHorizontal="true"
+                        >
+
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tạm dừng"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="28dp"
+                        />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumb="@drawable/thumb"
+                        app:track="@drawable/track"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="30dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="400dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#E6E6E8"
+                        android:layout_centerHorizontal="true"
+                        >
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thoát"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/close_add_alarm"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="100dp"
+                android:textColor="#154778"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/add_alarm"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="100dp"
+                android:textColor="#154778"
+                />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

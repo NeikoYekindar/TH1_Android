@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TimerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/xanh4"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/more"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+               android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/xanh3"
+                    android:text="Giờ"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+
+                    />
+                <TextView
+                    android:layout_marginStart="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/xanh3"
+                    android:text="Phút"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+
+                    />
+                <TextView
+                    android:layout_marginStart="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/xanh3"
+                    android:text="Giây"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+
+                    />
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="80dp"
+                    android:elevation="4dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_up"
+                        android:id="@+id/arrow_up_hour_timer"
+                        />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="80dp"
+                    android:elevation="4dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/arrow_up_minute_timer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_up" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="80dp"
+                    android:elevation="4dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="55dp"
+                    android:layout_marginTop="20dp"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_up"
+                        android:id="@+id/arrow_up_second_timer"
+                        />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="400dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="100dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+
+                        >
+                        <EditText
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:text="00"
+                            android:textSize="55sp"
+                            android:textColor="@color/xanh3"
+                            android:id="@+id/hour"
+                            android:maxLength="2"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_marginStart="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:text=":"
+                            android:textStyle="bold"
+                            android:textSize="55sp"
+                            android:textColor="@color/Gray"
+
+                            />
+
+                        <EditText
+                            android:layout_marginStart="30dp"
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:text="00"
+                            android:textSize="55sp"
+                            android:textColor="@color/xanh3"
+                            android:maxLength="2"
+                            android:id="@+id/minute"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_marginStart="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:text=":"
+                            android:textSize="55sp"
+                            android:textColor="@color/Gray"
+                            android:textStyle="bold"
+                            />
+                        <EditText
+                            android:layout_marginStart="30dp"
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:text="00"
+                            android:textSize="55sp"
+                            android:textColor="@color/xanh3"
+                            android:id="@+id/second"
+                            android:maxLength="2"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="80dp"
+                    android:elevation="4dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="200dp"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_down"
+                        android:id="@+id/arrow_down_hour_timer"
+                        />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="80dp"
+                    android:elevation="4dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="200dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/arrow_down_minute_timer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_down" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="80dp"
+                    android:elevation="4dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="55dp"
+                    android:layout_marginTop="200dp"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_down"
+                        android:id="@+id/arrow_down_second_timer"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="450dp"
+               android:layout_alignParentBottom="true"
+               app:cardCornerRadius="30dp"
+               ><RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <Button
+                   android:layout_width="110dp"
+                   android:layout_height="110dp"
+                   android:background="@drawable/btn_timer_ex"
+                   android:layout_marginTop="40dp"
+                   android:layout_marginStart="30dp"
+                   android:text="00:30:00"
+                   android:textSize="18sp"
+                   android:textColor="@color/xanh3"
+                   android:id="@+id/btn_30_p"
+                   />
+               <Button
+                   android:layout_width="110dp"
+                   android:layout_height="110dp"
+                   android:background="@drawable/btn_timer_ex"
+                   android:layout_marginTop="40dp"
+                   android:layout_marginStart="170dp"
+                   android:text="00:15:00"
+                   android:textSize="18sp"
+                   android:textColor="@color/xanh3"
+                   android:id="@+id/btn_15_p"
+                   />
+               <Button
+                   android:layout_alignParentEnd="true"
+                   android:layout_width="110dp"
+                   android:layout_height="110dp"
+                   android:background="@drawable/btn_timer_ex"
+                   android:layout_marginTop="40dp"
+                   android:layout_marginEnd="30dp"
+                   android:text="00:10:00"
+                   android:textSize="18sp"
+                   android:textColor="@color/xanh3"
+                   android:id="@+id/btn_10_p"
+                   />
+
+
+               <Button
+                   android:layout_width="150dp"
+                   android:layout_height="60dp"
+                   android:background="@drawable/btn_dem_gio"
+                   android:textSize="20sp"
+                   android:text="Bắt đầu"
+                   android:textColor="@color/white"
+                   android:layout_alignParentBottom="true"
+                   android:layout_centerHorizontal="true"
+                   android:layout_marginBottom="160dp"
+                   android:id="@+id/btn_start_timer"
+                   />
+           </RelativeLayout>
+
+           </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</FrameLayout>

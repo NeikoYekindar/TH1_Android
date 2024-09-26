@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tạo chủ đề tùy chỉnh cho TimePicker -->
+    <style name="CustomTimePicker" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Thay đổi màu nền của TimePicker -->
+        <item name="android:timePickerStyle">@style/CustomTimePickerStyle</item>
+    </style>
+
+    <style name="CustomTimePickerStyle" parent="android:Widget.Material.TimePicker">
+        <!-- Thay đổi màu nền của TimePicker -->
+        <item name="android:headerBackground">#FF4081</item>
+        <!-- Thay đổi màu của các nút -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <!-- Thay đổi màu của đồng hồ (spinner hoặc clock face) -->
+        <item name="android:numbersTextColor">#00BCD4</item>
+    </style>
+</resources>

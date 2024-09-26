@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="navi">#33357B</color>
+    <color name="Gray">#A6A6A6</color>
+    <color name="xanh2">#154877</color>
+    <color name="red">#FF0000</color>
+    <color name="xanh3">#33357B</color>
+    <color name="xanh4">#8AC4F4</color>
+</resources>
