@@ -6,6 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".timerActivity">
+
+
+
     <ProgressBar
         android:id="@+id/circularProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -18,6 +21,10 @@
         android:progressDrawable="@drawable/loading_timer"
         android:rotation="270"
         android:layout_gravity="center"/>
+
+
+
+
     <TextView
         android:id="@+id/timeText"
         android:layout_width="wrap_content"

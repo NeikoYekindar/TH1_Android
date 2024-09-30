@@ -2,6 +2,9 @@ package com.example.appglock;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,11 +21,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appglock.adapter.AlarmAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -68,9 +73,33 @@ public class AlarmFragment extends Fragment {
         alarmtimes = new ArrayList<>();
         alarmtimes.add("08:00");
         alarmtimes.add("07:15");
+        alarmtimes.add("07:30");
+        alarmtimes.add("10:15");
+        alarmtimes.add("23:15");
+        alarmtimes.add("02:30");
+
+        alarmAdapter = new AlarmAdapter(alarmtimes, new AlarmAdapter.OnSwitchToggleListener(){
+            @Override
+            public void onSwitchToggled(String time, boolean isOn){
+                String[] timeParts = time.split(":");
+                int hour = Integer.parseInt(timeParts[0]);
+                int minute = Integer.parseInt(timeParts[1]);
+
+                if (isOn) {
+                    // Cài đặt báo thức với giờ và phút
+                    setAlarm(hour, minute);
+                } else {
+                    // Hủy bỏ báo thức
+                    cancelAlarm(hour, minute);
+                }
+            }
 
 
-        alarmAdapter = new AlarmAdapter(alarmtimes);
+
+
+
+
+        });
         recyclerView.setAdapter(alarmAdapter);
 
 
@@ -78,22 +107,67 @@ public class AlarmFragment extends Fragment {
 
 
 
-        addalarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(getActivity(), AddAlarmAcitvity.class);
-                startActivityForResult(intent, 1);
-            }
-        });
-        receivedIntent = getActivity().getIntent();
-        hour = receivedIntent.getIntExtra("gio", 0);
-        minute = receivedIntent.getIntExtra("phut", 0);
+//        addalarm.setOnClickListener(view1 -> {
+//            intent = new Intent(getActivity(), AddAlarmAcitvity.class);
+//            startActivityForResult(intent, 1);
+//        });
+//        receivedIntent = getActivity().getIntent();
+//        hour = receivedIntent.getIntExtra("gio", 0);
+//        minute = receivedIntent.getIntExtra("phut", 0);
 
 
 
 
 
     }
+    // Hàm để cài đặt báo thức
+    private void setAlarm(int hour, int minute) {
+        // Logic để cài đặt báo thức
+        // Lấy đối tượng AlarmManager
+        AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+
+        // Tạo một Intent sẽ được kích hoạt khi báo thức chạy (ở đây sử dụng BroadcastReceiver)
+        Intent intent = new Intent(getContext(), AlarmReceiver.class);  // AlarmReceiver sẽ nhận báo thức
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Lấy thời gian hiện tại
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minute);
+        calendar.set(Calendar.SECOND, 0);
+
+        // Nếu thời gian đã qua rồi, đặt cho ngày hôm sau
+        if (calendar.before(Calendar.getInstance())) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        // Đặt báo thức với AlarmManager
+        if (alarmManager != null) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            // Nếu muốn dùng báo thức lặp lại:
+            // alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        }
+
+        // Thông báo rằng báo thức đã được đặt
+        Toast.makeText(getContext(), "Alarm set for " + String.format("%02d:%02d", hour, minute), Toast.LENGTH_SHORT).show();
+    }
+
+    // Hàm để hủy báo thức
+    private void cancelAlarm(int hour, int minute) {
+        // Logic để hủy bỏ báo thức
+        AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        if (alarmManager != null) {
+            alarmManager.cancel(pendingIntent);  // Hủy bỏ báo thức
+            Toast.makeText(getContext(), "Alarm canceled", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
@@ -108,9 +182,9 @@ public class AlarmFragment extends Fragment {
 
 
     }
-    private  void AddtimeAdapter(String time){
+    private void AddtimeAdapter(String time) {
         alarmtimes.add(time);
-        alarmAdapter.notifyDataSetChanged();
+        alarmAdapter.notifyItemInserted(alarmtimes.size() - 1);
     }
     private void startUpdatingTime() {
         updateTimeRunnable = new Runnable() {
